@@ -31,10 +31,7 @@ const App = () => {
   
   const addFavouriteMovie = (movie) => {
     try {
-      console.log(movie)
-      console.log('favourites: ', favourites);
       const newFavouriteList = [...favourites, movie];
-      console.log('newFavouriteList: ', newFavouriteList);
       setFavourites(newFavouriteList);
       saveToLocalStorage(newFavouriteList);
      } catch (err) {
@@ -55,7 +52,9 @@ const App = () => {
   }, [searchValue]);
   
   useEffect(() => {
-    const movieFavourites = JSON.parse(localStorage.getItem('react-movie-app-favourites'));
+    const movieFavourites = JSON.parse(localStorage.getItem('react-movie-app-favourites')) || [];
+    console.log('movieFavourites: ', movieFavourites);
+    
     console.log('movieFavourites: ', movieFavourites);
 
     setFavourites(movieFavourites)
