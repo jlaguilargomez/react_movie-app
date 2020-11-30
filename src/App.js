@@ -30,9 +30,17 @@ const App = () => {
   }
   
   const addFavouriteMovie = (movie) => {
-    const newFavouriteList = [...favourites, movie];
-    setFavourites(newFavouriteList);
-    saveToLocalStorage(newFavouriteList)
+    try {
+      console.log(movie)
+      const newFavouriteList = [...favourites, movie];
+      console.log('newFavouriteList: ', newFavouriteList);
+      setFavourites(newFavouriteList);
+      saveToLocalStorage(newFavouriteList);
+     } catch (err) {
+      console.log(err)
+    }
+   
+    
   }
 
   const removeFavouriteMovie = (movie) => {
@@ -47,6 +55,7 @@ const App = () => {
   
   useEffect(() => {
     const movieFavourites = JSON.parse(localStorage.getItem('react-movie-app-favourites'));
+    console.log('movieFavourites: ', movieFavourites);
 
     setFavourites(movieFavourites)
   }, []);

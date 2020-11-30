@@ -21,7 +21,7 @@ const MovieList = (props) => {
        </>
      );
   } else {
-    return (<h3>No hay peliculas</h3>);
+    return (<h3 className="m-4">No hay peliculas seleccionadas</h3>);
   }
  
 }
