@@ -32,6 +32,7 @@ const App = () => {
   const addFavouriteMovie = (movie) => {
     try {
       console.log(movie)
+      console.log('favourites: ', favourites);
       const newFavouriteList = [...favourites, movie];
       console.log('newFavouriteList: ', newFavouriteList);
       setFavourites(newFavouriteList);
